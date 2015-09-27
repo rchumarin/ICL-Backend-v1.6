@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 13, 2015 10:48:21 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="ru.icl.test.entity.User" table="user" schema="public" optimistic-lock="version">
+        <id name="clientid" type="string">
+            <column name="clientid" length="40" />
+            <generator class="assigned" />
+        </id>
+        <property name="fname" type="string">
+            <column name="fname" length="30" />
+        </property>
+        <set name="messages" table="message" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="clientid" length="40" />
+            </key>
+            <one-to-many class="ru.icl.test.entity.Message" />
+        </set>
+    </class>
+</hibernate-mapping>

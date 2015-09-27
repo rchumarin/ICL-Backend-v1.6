@@ -1,0 +1,17 @@
+/Users/rchumarin/NetBeansProjects/ICL-Backend-1.6/ICL-Backend-1.6/src/main/java/ru/icl/test/db/JDBC.java
+/Users/rchumarin/NetBeansProjects/ICL-Backend-1.6/ICL-Backend-1.6/src/main/java/ru/icl/test/dao/MessageDao.java
+/Users/rchumarin/NetBeansProjects/ICL-Backend-1.6/ICL-Backend-1.6/src/main/java/ru/icl/test/entity/MessageList.java
+/Users/rchumarin/NetBeansProjects/ICL-Backend-1.6/ICL-Backend-1.6/src/main/java/ru/icl/test/dao/Factory.java
+/Users/rchumarin/NetBeansProjects/ICL-Backend-1.6/ICL-Backend-1.6/src/main/java/ru/icl/test/entity/HibernateUtil.java
+/Users/rchumarin/NetBeansProjects/ICL-Backend-1.6/ICL-Backend-1.6/src/main/java/ru/icl/test/filters/MyFilter_Draft.java
+/Users/rchumarin/NetBeansProjects/ICL-Backend-1.6/ICL-Backend-1.6/src/main/java/ru/icl/test/dao/MessageDaoImpl.java
+/Users/rchumarin/NetBeansProjects/ICL-Backend-1.6/ICL-Backend-1.6/src/main/java/ru/icl/test/servlets/DeleteMessage.java
+/Users/rchumarin/NetBeansProjects/ICL-Backend-1.6/ICL-Backend-1.6/src/main/java/ru/icl/test/filters/MyFilter.java
+/Users/rchumarin/NetBeansProjects/ICL-Backend-1.6/ICL-Backend-1.6/src/main/java/ru/icl/test/dao/UserDao.java
+/Users/rchumarin/NetBeansProjects/ICL-Backend-1.6/ICL-Backend-1.6/src/main/java/ru/icl/test/servlets/AllMessage.java
+/Users/rchumarin/NetBeansProjects/ICL-Backend-1.6/ICL-Backend-1.6/src/main/java/ru/icl/test/dao/UserDaoImpl.java
+/Users/rchumarin/NetBeansProjects/ICL-Backend-1.6/ICL-Backend-1.6/src/main/java/ru/icl/test/entity/User.java
+/Users/rchumarin/NetBeansProjects/ICL-Backend-1.6/ICL-Backend-1.6/src/main/java/ru/icl/test/db/Database.java
+/Users/rchumarin/NetBeansProjects/ICL-Backend-1.6/ICL-Backend-1.6/src/main/java/ru/icl/test/entity/Message.java
+/Users/rchumarin/NetBeansProjects/ICL-Backend-1.6/ICL-Backend-1.6/src/main/java/ru/icl/test/servlets/WriteMessage_Draft.java
+/Users/rchumarin/NetBeansProjects/ICL-Backend-1.6/ICL-Backend-1.6/src/main/java/ru/icl/test/servlets/WriteMessage.java

@@ -1,0 +1,17 @@
+ru/icl/test/dao/MessageDao.class
+ru/icl/test/dao/UserDao.class
+ru/icl/test/servlets/DeleteMessage.class
+ru/icl/test/entity/HibernateUtil.class
+ru/icl/test/filters/MyFilter.class
+ru/icl/test/dao/UserDaoImpl.class
+ru/icl/test/entity/Message.class
+ru/icl/test/servlets/WriteMessage_Draft.class
+ru/icl/test/dao/MessageDaoImpl.class
+ru/icl/test/entity/MessageList.class
+ru/icl/test/dao/Factory.class
+ru/icl/test/db/Database.class
+ru/icl/test/entity/User.class
+ru/icl/test/servlets/WriteMessage.class
+ru/icl/test/filters/MyFilter_Draft.class
+ru/icl/test/db/JDBC.class
+ru/icl/test/servlets/AllMessage.class
