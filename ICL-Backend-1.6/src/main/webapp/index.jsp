@@ -18,8 +18,8 @@
             </div>
             <div class="login_div">
                 <p class="title">вход в чат:</p>
-                <form class="login_form" name="username" action="pages/main.jsp" method="POST">
-                    Имя <input type="text" name="name" value="" size="20" /> <!--required="true"--!>                                                         
+                <form class="login_form" name="username" action="<%=request.getContextPath()%>/simple" method="GET">
+                    Имя <input type="text" name="login" value="" size="20" /> <!--required="true"--!>                                                         
                     <input type="submit" value="Войти" />
                 </form>
             </div>

@@ -7,7 +7,7 @@ import javax.servlet.http.HttpSession;
 
 public class JDBC {
            
-    public JDBC(HttpSession session, String id, String name, String msg) { 
+    public JDBC(HttpSession session, String id, String login, String msg) { 
         //запись в БД Postgres
         Connection conn = null;
         PreparedStatement pstmt1 = null;
@@ -20,7 +20,7 @@ public class JDBC {
             if (session.isNew()) { 
                 pstmt1 = conn.prepareStatement(sql1);
                 pstmt1.setString(1, id);
-                pstmt1.setString(2, name);
+                pstmt1.setString(2, login);
                 pstmt1.executeUpdate();
             }
 

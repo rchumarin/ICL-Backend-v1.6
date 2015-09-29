@@ -1,3 +1,6 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page import="org.json.simple.JSONObject"%>
+
 <%@page import="java.util.Map"%>
 <%@page import="java.util.HashMap"%>
 <%@page import="java.util.List"%>
@@ -6,7 +9,6 @@
 <%@page import="org.json.simple.JSONArray"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="org.json.simple.JSONObject"%>
-<%@page import="ru.icl.test.auth.Username" %>
 <%@ page contentType="text/html; charset=UTF-8" language="java"%>
 <html>
     <head>
@@ -17,8 +19,8 @@
     <body>    
     <%
         request.setCharacterEncoding("UTF-8");                    
-        if (request.getParameter("name") != null) {                
-            session.setAttribute("name", request.getParameter("name"));
+        if (request.getParameter("login") != null) {                
+            session.setAttribute("login", request.getParameter("login"));
         }             
     %>           
     <div class="container">        
@@ -29,10 +31,10 @@
                 <h3>Онлайн ЧАТ</h3>
             </div>
             <div class="welcome">
-                <h5>Добро пожаловать, <%=session.getAttribute("name")%>!</h5>
+                <h5>Добро пожаловать, <%=session.getAttribute("login")%>!</h5>
                 <h5 class="sessia">Ваш id: <%=session.getId()%></h5>
-                <h6><a href="../pages/allmsg.jsp">Все сообщения&emsp;</a>
-                    <a href="../index.jsp">Выход</a>
+                <h6><a href="<%=request.getContextPath()%>/allmessage">Все сообщения&emsp;</a>
+                    <a href="<%=request.getContextPath()%>">Выход</a>
                 </h6>
             </div>
             <div class="search_form">
@@ -48,7 +50,17 @@
                         <th>id</th> 
                         <th>Users</th> 
                         <th>Messages</th>
-                    </tr>                                                                                   
+                    </tr>                  
+                     <c:forEach items="${requestScope.jsonOb.keySet()}" var="keys"> 
+                         <c:set var="jsonarr" value="${jsonOb.get(keys)}"/>
+                         <c:forEach var="msg" items="${jsonarr}"> 
+                            <tr>
+                                <td></td>
+                                <td>${keys}</td>
+                                <td><c:out value="${msg}"/></td>                              
+                            </tr>
+                        </c:forEach>
+                    </c:forEach>                          
                 </table>
             </div>                                                                   
         </div>                     

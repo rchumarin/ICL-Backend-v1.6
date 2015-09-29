@@ -40,6 +40,8 @@ public class MyFilter implements Filter {
     
     private boolean active = false;
     
+    String msg = null;
+
     public MyFilter() {
     }    
         
@@ -48,17 +50,14 @@ public class MyFilter implements Filter {
             throws IOException, ServletException {
     
         /* 
-        Структура нашего JSON объекта:
-        { id_key : {msg_key : [message], 
-                       name_Key: name} 
-        }
-        
+        Структура JSON объекта:
+        { id_key : [message]} 
+                
         Cтруктура GSON:
         { id_key : [message] }
         
         где: 
             id_key - сессия клиента           
-            name - имя клиента
             message - сообщения клиента (массив)                    
         */
                                         
@@ -66,10 +65,10 @@ public class MyFilter implements Filter {
             HttpServletRequest request = (HttpServletRequest) req;             
             HttpSession session = request.getSession(true);                    
             String id = session.getId();
-            String name = (String) session.getAttribute("name");                                    
-            String msg = request.getParameter("msg");            
+            String login = (String) session.getAttribute("login");                                    
+            msg = request.getParameter("msg");            
             
-            session.setAttribute("name", name);            
+            //session.setAttribute("login", login);            
 
             request.getServletContext().setAttribute("active", active);                        
             if(active) { //active - параметр фильтра со значением true
@@ -77,20 +76,26 @@ public class MyFilter implements Filter {
                 JSONObject jsonOb = (JSONObject) request.getServletContext().getAttribute("sessionMap");
                 if (jsonOb==null) {
                     jsonOb = new JSONObject();
-                }                  
-                JSONArray jsonArr;            
+                }          
+                //вводится массив для сообщений текущего клиента
+                JSONArray jsonArr;   
+                // для новой сессии создаем новый список
                 if (session.isNew()) {                
                     jsonArr = new JSONArray();
-                } else { 
+                } 
+                // иначе получаем список из атрибутов сессии
+                else { 
                     jsonArr = (JSONArray)session.getAttribute("jmessage");                
                 }
-                jsonArr.add(msg);  
-                session.setAttribute("jmessage", jsonArr);                            
-                JSONObject jsonName = new JSONObject();
-                jsonName.put("name", name);
-                jsonName.put("msg", jsonArr);
-                jsonOb.put(id, jsonName);    
-                request.getServletContext().setAttribute("sessionMap", jsonOb);                                                                
+                //если параметр msg не пустой
+                if (msg != null) {               
+                    jsonArr.add(msg); 
+                }
+                session.setAttribute("jmessage", jsonArr);  
+                //вывод сообщений других клиентов
+                jsonOb.put(id, jsonArr);                                                 
+                request.getServletContext().setAttribute("sessionMap", jsonOb);                                                              
+                
             } else { //Обертка в GSON                        
                 Map<String, List> sessionMap = (HashMap<String,List>)request.getServletContext().getAttribute("sessionMap");        
                 if (sessionMap==null) {
@@ -121,7 +126,7 @@ public class MyFilter implements Filter {
             UserDao userDao = factory.getUserDao();
             MessageDao messageDao = factory.getMessageDao();        
             User user = new User(id);
-            user.setFname(name);
+            user.setFname(login);
             if(session.isNew()) userDao.addUser(user);
             Message message = new Message();        
             message.setMessage(msg);
